@@ -186,13 +186,14 @@ subroutine read_f(arg,D,N,tol,iter,Lx,Ly,Lz,ra,mu,sh,he,de,an,or,nlines)
   
 end subroutine
 
-subroutine title(N,space,iter,geo_typ,Lx,Ly,Lz)
+subroutine title(N,space,iter,geo_typ,Lx,Ly,Lz,file_index)
 
   implicit none 
   
   ! ---- ! input  ! ---- ! 
   
-  integer              , intent(in)          :: N , space , iter 
+  integer              , intent(in)          :: N , space , iter
+  integer              , intent(in)          :: file_index
   double precision     , intent(in)          :: Lx , Ly , Lz 
   character (len = 10 ), intent(in)          :: geo_typ
   
@@ -212,70 +213,70 @@ subroutine title(N,space,iter,geo_typ,Lx,Ly,Lz)
   LLy = Ly/(2*pi)
   LLz = Lz/(2*pi)
   
-write(*,'(a)') ""
-write(*,'(a)') "   _____ _                                                       _     _ "
-write(*,'(a)') "  |_   _| |                                                     | |   | |"
-write(*,'(a)') "    | | | |__   ___  _ __ ___  ___  ___  _ __    _ __  _ __ ___ | |__ | | ___ _ __ ___"
-write(*,'(a)') "    | | | '_ \ / _ \| '_ ` _ \/ __|/ _ \| '_ \  | '_ \| '__/ _ \| '_ \| |/ _ \ '_ ` _ \"
-write(*,'(a)') "    | | | | | | (_) | | | | | \__ \ (_) | | | | | |_) | | | (_) | |_) | |  __/ | | | | |"
-write(*,'(a)') "    \_/ |_| |_|\___/|_| |_| |_|___/\___/|_| |_| | .__/|_|  \___/|_.__/|_|\___|_| |_| |_|"
-write(*,'(a)') "                                                | |"
-write(*,'(a)') "                                                |_|"
-write(*,'(a)') ""
-write(*,'(a)') "                           ,,....................,,.                 "
-write(*,'(a)') "                     ,..........,,,,..      ............,*           "
-write(*,'(a)') "                 ,.......,,,,,****************,,,,,,.......,,*       "
-write(*,'(a)') "              *,.....,,,,***/////((((((((((/////****,,,......,,*     "
-write(*,'(a)') "            /,,.....,,**//(((###%%%%%%%%%%%%###(((//**,,,.....,,*/   "
-write(*,'(a)') "           /*,,.....,,*/(##%%%%%%%%%%%%%%%%%%%%%%%##(/**,......,,*/  "
-write(*,'(a)') "          (/*,,......,*/#%%%,                     %%%#/,,.....,,**/( "
-write(*,'(a)') "          #/**,,,......,,                            ,......,,,**/(# "
-write(*,'(a)') "          (#(/**,,,,........,                    ,.......,,,***/((#% "
-write(*,'(a)') "           %#((//***,,,,,..........................,,,,,,***//((#%%  "
-write(*,'(a)') "            *%%#((///*****,,,,,.       ....,,,,,,,*****///(((#%%%%   "
-write(*,'(a)') "              #%%%##((((/////******************/////((((###%%%%%     "
-write(*,'(a)') "                 %%%%%%%####((((((((((((((((((((####%%%%%%%%%        "
-write(*,'(a)') "                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%            "
-write(*,'(a)') "                            #%%%%%%%%%%%%%%%%%%%%%                   "
-write(*,'(a)') ""
-write(*,'(a)') " By : A.ALRAKIK                                                Supervision: S.Evangelisti   "
-write(*,'(a)') "____________________________________________________________________________________________"
-write(*,'(a)') ""
+write(file_index,'(a)') ""
+write(file_index,'(a)') "   _____ _                                                       _     _ "
+write(file_index,'(a)') "  |_   _| |                                                     | |   | |"
+write(file_index,'(a)') "    | | | |__   ___  _ __ ___  ___  ___  _ __    _ __  _ __ ___ | |__ | | ___ _ __ ___"
+write(file_index,'(a)') "    | | | '_ \ / _ \| '_ ` _ \/ __|/ _ \| '_ \  | '_ \| '__/ _ \| '_ \| |/ _ \ '_ ` _ \"
+write(file_index,'(a)') "    | | | | | | (_) | | | | | \__ \ (_) | | | | | |_) | | | (_) | |_) | |  __/ | | | | |"
+write(file_index,'(a)') "    \_/ |_| |_|\___/|_| |_| |_|___/\___/|_| |_| | .__/|_|  \___/|_.__/|_|\___|_| |_| |_|"
+write(file_index,'(a)') "                                                | |"
+write(file_index,'(a)') "                                                |_|"
+write(file_index,'(a)') ""
+write(file_index,'(a)') "                           ,,....................,,.                 "
+write(file_index,'(a)') "                     ,..........,,,,..      ............,*           "
+write(file_index,'(a)') "                 ,.......,,,,,****************,,,,,,.......,,*       "
+write(file_index,'(a)') "              *,.....,,,,***/////((((((((((/////****,,,......,,*     "
+write(file_index,'(a)') "            /,,.....,,**//(((###%%%%%%%%%%%%###(((//**,,,.....,,*/   "
+write(file_index,'(a)') "           /*,,.....,,*/(##%%%%%%%%%%%%%%%%%%%%%%%##(/**,......,,*/  "
+write(file_index,'(a)') "          (/*,,......,*/#%%%,                     %%%#/,,.....,,**/( "
+write(file_index,'(a)') "          #/**,,,......,,                            ,......,,,**/(# "
+write(file_index,'(a)') "          (#(/**,,,,........,                    ,.......,,,***/((#% "
+write(file_index,'(a)') "           %#((//***,,,,,..........................,,,,,,***//((#%%  "
+write(file_index,'(a)') "            *%%#((///*****,,,,,.       ....,,,,,,,*****///(((#%%%%   "
+write(file_index,'(a)') "              #%%%##((((/////******************/////((((###%%%%%     "
+write(file_index,'(a)') "                 %%%%%%%####((((((((((((((((((((####%%%%%%%%%        "
+write(file_index,'(a)') "                     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%            "
+write(file_index,'(a)') "                            #%%%%%%%%%%%%%%%%%%%%%                   "
+write(file_index,'(a)') ""
+write(file_index,'(a)') " By : A.ALRAKIK                                                Supervision: S.Evangelisti   "
+write(file_index,'(a)') "____________________________________________________________________________________________"
+write(file_index,'(a)') ""
 
 if (  geo_typ == "random" ) then
 
-  write(*,'(a,i4,a,i1,a,i7,a,a)') "The calculation for " , N ,"  electron in " , space   &
+  write(file_index,'(a,i4,a,i1,a,i7,a,a)') "The calculation for " , N ,"  electron in " , space   &
                                  ,"D dimension , with ", iter , " loops and random geometry"
 
 else
 
-  write(*,'(a,i4,a,i1,a,i7,a,a)') "The calculation for " , N ,"  electron in " , space   &
+  write(file_index,'(a,i4,a,i1,a,i7,a,a)') "The calculation for " , N ,"  electron in " , space   &
                                  ,"D dimension , with ", iter , " loops and spacific geometry"
 
 end if
 
-write(*,'(a)') "____________________________________________________________________________________________"
-write(*,'(a)') ""
-write(*,'(a)') "                   || The Pi parameter ||"
-write(*,'(a)') ""
-write(*,'(a,f14.12,a,f14.12)') "      Pi = " , pi , "       2 Pi = " , 2.d0*pi
-write(*,'(a)') ""
-write(*,'(a)') "                   ||  The size of the box  ||"
-write(*,'(a)') ""
-write (*,'(a,f14.12,a,f14.12,a,f14.12,a)') "       X = " , Lx ,"          Y = " , Ly , "          Z = " , Lz
-write(*,'(a)') ""
-write(*,'(a)') "                   ||  The ratio between 2 pi and the lengths of the box  ||"
-write(*,'(a)') ""
-write (*,'(a,f14.12,a,f14.12,a,f14.12)') "ratio(x) = " , LLx ,"   ratio(y) = " , LLy , "   ratio(z) = " , LLz
-write(*,'(a)') ""
-write(*,'(a)') "____________________________________________________________________________________________"
-write(*,'(a)') "                               _                _             _ "
-write(*,'(a)') "                          ___ | |_  __ _  _ __ | |_  ___   __| |"
-write(*,'(a)') "                         / __|| __|/ _` || '__|| __|/ _ \ / _` |"
-write(*,'(a)') "                         \__ \| |_| (_| || |   | |_|  __/| (_| |"
-write(*,'(a)') "                         |___/ \__|\__,_||_|    \__|\___| \__,_|"
-write(*,'(a)') "____________________________________________________________________________________________"
-write(*,'(a)') ""
+write(file_index,'(a)') "____________________________________________________________________________________________"
+write(file_index,'(a)') ""
+write(file_index,'(a)') "                   || The Pi parameter ||"
+write(file_index,'(a)') ""
+write(file_index,'(a,f14.12,a,f14.12)') "      Pi = " , pi , "       2 Pi = " , 2.d0*pi
+write(file_index,'(a)') ""
+write(file_index,'(a)') "                   ||  The size of the box  ||"
+write(file_index,'(a)') ""
+write(file_index,'(a,f14.12,a,f14.12,a,f14.12,a)') "       X = " , Lx ,"          Y = " , Ly , "          Z = " , Lz
+write(file_index,'(a)') ""
+write(file_index,'(a)') "                   ||  The ratio between 2 pi and the lengths of the box  ||"
+write(file_index,'(a)') ""
+write(file_index,'(a,f14.12,a,f14.12,a,f14.12)') "ratio(x) = " , LLx ,"   ratio(y) = " , LLy , "   ratio(z) = " , LLz
+write(file_index,'(a)') ""
+write(file_index,'(a)') "____________________________________________________________________________________________"
+write(file_index,'(a)') "                               _                _             _ "
+write(file_index,'(a)') "                          ___ | |_  __ _  _ __ | |_  ___   __| |"
+write(file_index,'(a)') "                         / __|| __|/ _` || '__|| __|/ _ \ / _` |"
+write(file_index,'(a)') "                         \__ \| |_| (_| || |   | |_|  __/| (_| |"
+write(file_index,'(a)') "                         |___/ \__|\__,_||_|    \__|\___| \__,_|"
+write(file_index,'(a)') "____________________________________________________________________________________________"
+write(file_index,'(a)') ""
 
 end subroutine
 
@@ -360,13 +361,14 @@ subroutine first_geo(arg,N,D,Lx,Ly,Lz,ra,mu,geo,nlines)
 
 end subroutine
 
-subroutine print_geo(N,D,geo)
+subroutine print_geo(N,D,geo,file_index)
 
   implicit none 
 	
   ! ---- ! input  ! ---- ! 
   
   integer              , intent(in)          :: N  , D  
+  integer              , intent(in)          :: file_index
   double precision     , intent(in)          :: geo(N,D)
   
   ! ---- ! local  ! ---- !  
@@ -379,46 +381,46 @@ subroutine print_geo(N,D,geo)
   
   ! ---- ! code  ! ---- !
 	
-  write(*,'(a)') ""
+  write(file_index,'(a)') ""
   if      ( D == 3 ) then
   
     
-    write (*,'(a)') "                 =========================================================================="
-    write (*,'(a)') "                           X                         Y                         Z"
-    write (*,'(a)') "                 =========================================================================="
-    write (*,'(a)') ""
+    write (file_index,'(a)') "                 =========================================================================="
+    write (file_index,'(a)') "                           X                         Y                         Z"
+    write (file_index,'(a)') "                 =========================================================================="
+    write (file_index,'(a)') ""
     
     do i = 1, N
-      write (*,'(I4,a,f26.16,f26.16,f26.16)') i,"      " , geo(i, :)
+      write (file_index,'(I4,a,f26.16,f26.16,f26.16)') i,"      " , geo(i, :)
     end do 
   
   else if ( D == 2 ) then 
     
     
-    write (*,'(a)') "                 ==============================================="
-    write (*,'(a)') "                           X                         Y"
-    write (*,'(a)') "                 ==============================================="
-    write (*,'(a)') ""
+    write (file_index,'(a)') "                 ==============================================="
+    write (file_index,'(a)') "                           X                         Y"
+    write (file_index,'(a)') "                 ==============================================="
+    write (file_index,'(a)') ""
     
     do i = 1, N
-      write (*,'(I4,a,f26.16,f26.16)') i,"      " , geo(i, :)
+      write (file_index,'(I4,a,f26.16,f26.16)') i,"      " , geo(i, :)
     end do 
 	
   else if ( D == 1 ) then 
     
     
-    write (*,'(a)') "                 ===================="
-    write (*,'(a)') "                           X"
-    write (*,'(a)') "                 ===================="
-    write (*,'(a)') ""
+    write (file_index,'(a)') "                 ===================="
+    write (file_index,'(a)') "                           X"
+    write (file_index,'(a)') "                 ===================="
+    write (file_index,'(a)') ""
     
     do i = 1, N
-      write (*,'(I4,a,f26.16)') i,"      " , geo(i, :)
+      write (file_index,'(I4,a,f26.16)') i,"      " , geo(i, :)
     end do 
   
   end if 
     
-    write(*,'(a)') ""
+    write(file_index,'(a)') ""
   
   end subroutine
   
@@ -558,7 +560,7 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
   
   end subroutine
   
-  subroutine diagonalize_matrix(N,A,e)
+  subroutine diagonalize_matrix(N,A,e,file_index)
 
 ! Diagonalize a square matrix
 
@@ -567,6 +569,7 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
 ! Input variables
 
   integer,intent(in)            :: N
+  integer,intent(in)            :: file_index
   double precision,intent(inout):: A(N,N)
   double precision,intent(out)  :: e(N)
 
@@ -585,7 +588,7 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
   call dsyev('V','U',N,A,N,e,work,lwork,info)
  
   if(info /= 0) then 
-    print*,'Problem in diagonalize_matrix (dsyev)!!'
+    write(file_index,'(a)') 'Problem in diagonalize_matrix (dsyev)!!'
     stop
   endif
   
@@ -593,26 +596,26 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
     if (abs(e(i)) < 1e-10) e(i) = 0
   end do  
   
-  write(*,'(a)') "____________________________________________________________________________________________"
-  write(*,'(a)') ""
-  print *, "            The EigenValues of the hessian"
-  print *, ""
+  write(file_index,'(a)') "____________________________________________________________________________________________"
+  write(file_index,'(a)') ""
+  write(file_index,'(a)') "            The EigenValues of the hessian"
+  write(file_index,'(a)')
   
   do i = 1,N
-    write (*,'(f20.12)') e(i)  
+    write (file_index,'(f20.12)') e(i)  
   end do
   
-  write(*,'(a)') "____________________________________________________________________________________________"
-  write(*,'(a)') ""
+  write(file_index,'(a)') "____________________________________________________________________________________________"
+  write(file_index,'(a)') ""
   
     do i=1,N
       if (abs(e(i)) > 1e-8 .and. e(i) < 0) then 
-        write (*,'(a)') "you are at stationary state (Negative eignvalue)"
-        write (*,'(a)') ""
+        write (file_index,'(a)') "you are at stationary state (Negative eignvalue)"
+        write (file_index,'(a)') ""
         exit
       else 
-        write (*,'(a)') "all the eignvalue is positive"
-        write (*,'(a)') ""
+        write (file_index,'(a)') "all the eignvalue is positive"
+        write (file_index,'(a)') ""
         exit
       end if 
     end do 
@@ -620,13 +623,14 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
 
   end subroutine diagonalize_matrix
   
-  subroutine print_distance(N,D,X,Lx,Ly,Lz)
+  subroutine print_distance(N,D,X,Lx,Ly,Lz,file_index)
   
   implicit none 
   
   ! Input variables
 
   integer,intent(in)            :: N , D 
+  integer,intent(in)            :: file_index
   double precision ,intent(in)  :: X(N*D,N*D) 
   double precision ,intent(in)  :: Lx,Ly,Lz
 
@@ -668,15 +672,13 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
     
   end if 
     
-    write(*,'(a)') "____________________________________________________________________________________________"
-    write(*,'(a)') ""
-    write(*,'(a)') '                                    The distance matrix (Geodesic)'
-    write(*,'(a)') ""
-    write(*,'(a)') ""
-    
-    do i = 1, N
-       write (*,'(a,I3,a,((1x,1000f16.10)))') "(",i,")" , X_distance(i,:)
-    end do 
+    write(file_index,'(a)') "____________________________________________________________________________________________"
+    write(file_index,'(a)') ""
+    write(file_index,'(a)') '                                    The distance matrix (Geodesic)'
+    write(file_index,'(a)') ""
+    write(file_index,'(a)') ""
+     
+    call matout(N,N,X_distance,file_index)
 	
     X_distance = 0.d0
 
@@ -713,15 +715,13 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
     end if
     
     
-    write(*,'(a)') "____________________________________________________________________________________________"
-    write(*,'(a)') ""
-    write(*,'(a)') '                                    The distance matrix (Euclidean)' 
-    write(*,'(a)')
-    write(*,'(a)') ""
+    write(file_index,'(a)') "____________________________________________________________________________________________"
+    write(file_index,'(a)') ""
+    write(file_index,'(a)') '                                    The distance matrix (Euclidean)' 
+    write(file_index,'(a)')
+    write(file_index,'(a)') ""
     
-    do i = 1, N
-      write (*,'(a,I3,a,((1x,1000f16.10)))') "(",i,")" , X_distance(i,:)
-    end do
+    call matout(N,N,X_distance,file_index)
   
   endsubroutine
   
@@ -812,25 +812,26 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
 
   end subroutine
   
-  subroutine plot_anim(N,D,iter,Lx,Ly,Lz)
+  subroutine plot_anim(N,D,iter,Lx,Ly,Lz,file_index)
   
   implicit none 
   
   ! Input variables
 
   integer,intent(in)            :: N , D , iter 
+  integer,intent(in)            :: file_index
   double precision, intent(in)  :: Lx, Ly , Lz 
   character(len=25)             :: name1,name2
   integer                       :: i , b 
   
   
   if (iter .ne. 1) then
-    write(*,'(a)') "____________________________________________________________________________________________"
-    write(*,'(a)') "" 
-    write(*,'(a)') "Please wait for the animation"
-    write(*,'(a)') "____________________________________________________________________________________________"
-    write(*,'(a)') ""
-    open(9,file='plot',status = 'replace')
+    write(file_index,'(a)') "____________________________________________________________________________________________"
+    write(file_index,'(a)') "" 
+    write(file_index,'(a)') "Please wait for the animation"
+    write(file_index,'(a)') "____________________________________________________________________________________________"
+    write(file_index,'(a)') ""
+!    open (9,file='plot',status = 'replace')
     write(9,'(a)') 'set term png size 1920,1080'
     write(9,'(a)') 'system "mkdir tmp"'
     write(9,'(a)') "getValue(row,col,filename) = system('awk ''{if (NR == '.row.') print&
@@ -900,17 +901,16 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
       write(9,'(a,a)') "system 'ffmpeg -y -nostats -loglevel 0 -f image2&
                       & -r 30.0 -i tmp/image.%d.png -pix_fmt yuv420p -crf 1 ",name2
       write(9,'(a)') "system 'rm -rf tmp/'"
-      close(9)
+
     else
         
         if      (D == 3) then 
         
-        write(*,'(a)') "____________________________________________________________________________________________"
-        write(*,'(a)') "" 
-        write(*,'(a)') "Please wait for the animation"
-        write(*,'(a)') "____________________________________________________________________________________________"
-        write(*,'(a)') ""
-        open(9,file='plot',status = 'replace')
+        write(file_index,'(a)') "____________________________________________________________________________________________"
+        write(file_index,'(a)') "" 
+        write(file_index,'(a)') "Please wait for the animation"
+        write(file_index,'(a)') "____________________________________________________________________________________________"
+        write(file_index,'(a)') ""
         write(9,'(a)') 'set term png size 1920,1080'
         write(9,'(a)') 'system "mkdir tmp"'
         write(9,'(a)') "getValue(row,col,filename) = system('awk ''{if (NR == '.row.') print&
@@ -960,12 +960,11 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
           if (name1(i:i).ne.' ')name2=trim(name2)//trim(name1(i:i))   
         end do
         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        write(*,'(a)') "____________________________________________________________________________________________"
-        write(*,'(a)') ""
-        write(*,'(a)') 'I can not provide you animation for one frame but i can give you a pic as png'
-        write(*,'(a)') "____________________________________________________________________________________________"
-        write(*,'(a)') ""
-        open(9,file='plot',status = 'replace')
+        write(file_index,'(a)') "____________________________________________________________________________________________"
+        write(file_index,'(a)') ""
+        write(file_index,'(a)') 'I can not provide you animation for one frame but i can give you a pic as png'
+        write(file_index,'(a)') "____________________________________________________________________________________________"
+        write(file_index,'(a)') ""
         write(9,'(a)') 'set term png size 1920,1080'
         write(9,'(a,f16.10,a)') 'set xrange [0:',Lx,']'
         write(9,'(a,f16.10,a)') 'set yrange [0:',Ly,']'
@@ -984,7 +983,6 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
         write(9,'(a)') "set label sprintf('Energy = %16.10f', x*1.0)&
                                                  &at screen 0.9,0.9  center font ',18'"
         write(9,'(a,I4,a,I4,a,I4,a)') "plot for [j=1:",N,"] 'data_frame.dat' u (column(j)):(column(",N,"+j)) w p pt 7 ps 3 notitle"
-        
         else if (D == 1 ) then 
         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         write(name1,'(a,I6,a,I6,a)') '"',D,'D',N,'.png"'
@@ -993,12 +991,11 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
           if (name1(i:i).ne.' ')name2=trim(name2)//trim(name1(i:i))   
         end do
         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        write(*,'(a)') "____________________________________________________________________________________________"
-        write(*,'(a)') ""
-        write(*,'(a)') 'I can not provide you animation for one frame but i can give you a pic as png'
-        write(*,'(a)') "____________________________________________________________________________________________"
-        write(*,'(a)') ""
-        open(9,file='plot',status = 'replace')
+        write(file_index,'(a)') "____________________________________________________________________________________________"
+        write(file_index,'(a)') ""
+        write(file_index,'(a)') 'I can not provide you animation for one frame but i can give you a pic as png'
+        write(file_index,'(a)') "____________________________________________________________________________________________"
+        write(file_index,'(a)') ""
         write(9,'(a)') 'set term png size 1920,1080'
         write(9,'(a,f16.10,a)') 'set xrange [0:',Lx,']'
         write(9,'(a,f16.10,a)') 'set yrange [0:',Ly,']'
@@ -1023,8 +1020,40 @@ subroutine PBC(N,D,X,Lx,Ly,Lz)
         write(9,'(a,I4,a,I4,a,I4,a)') "plot for [j=1:",N,"] 'data_frame.dat'&
                                        &u j:(0) w p pt 7 ps 3 notitle"
         end if 
-      close(9)
   end if  
   
   
   end subroutine
+
+subroutine matout(m,n,A,file_index)
+
+! Print the MxN array A
+
+  implicit none
+
+  integer,parameter             :: ncol = 5
+  double precision,parameter    :: small = 1d-10
+  integer,intent(in)            :: m,n
+  integer,intent(in)            :: file_index
+  double precision,intent(in)   :: A(m,n)
+  double precision              :: B(ncol)
+  integer                       :: ilower,iupper,num,i,j
+  
+  do ilower=1,n,ncol
+    iupper = min(ilower + ncol - 1,n)
+    num = iupper - ilower + 1
+    write(file_index,'(3X,10(9X,I6))')
+    write(file_index,'(3X,10(9X,I6))') (j,j=ilower,iupper)
+    write(file_index,'(3X,10(9X,I6))')
+    do i=1,m
+      do j=ilower,iupper
+        B(j-ilower+1) = A(i,j)
+      enddo
+      do j=1,num
+        if(abs(B(j)) < small) B(j) = 0d0
+      enddo
+      write(file_index,'(I7,10F15.8)') i,(B(j),j=1,num)
+    enddo
+  enddo
+
+end subroutine matout
